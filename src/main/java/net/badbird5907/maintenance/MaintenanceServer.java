@@ -17,6 +17,7 @@ import com.github.steveice10.packetlib.event.server.SessionAddedEvent;
 import com.github.steveice10.packetlib.event.server.SessionRemovedEvent;
 import com.github.steveice10.packetlib.tcp.TcpServer;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextColor;
 
@@ -34,14 +35,14 @@ public class MaintenanceServer {
                         new VersionInfo("Maintenance", 0x40000001),
                         new PlayerInfo(-1, -1, new GameProfile[0]),
                         Component.text("")
-                                .style(Style.style(TextColor.color(Color.RED.getRGB())))
+                                .style(Style.style(TextColor.color(NamedTextColor.RED)))
                                 .append(Component.text("This server is under maintenance.")),
                         null
                 )
         );
         server.setGlobalFlag(MinecraftConstants.SERVER_LOGIN_HANDLER_KEY, (ServerLoginHandler) session -> {
                     session.send(new ClientboundDisconnectPacket(Component.text("")
-                            .style(Style.style(TextColor.color(Color.RED.getRGB())))
+                            .style(Style.style(TextColor.color(NamedTextColor.RED)))
                             .append(Component.text("This server is under maintenance."))));
                 }
         );
