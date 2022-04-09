@@ -64,6 +64,6 @@ public class MaintenanceServer {
         });
         System.out.println("Binding server...");
         server.bind();
-        System.out.println("Server successfully binded to 0.0.0.0:25565");
+        System.out.println("Listening on 0.0.0.0:25565");
     }
 }
